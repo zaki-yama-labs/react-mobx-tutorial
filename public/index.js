@@ -1,36 +1,16 @@
-import 'react-hot-loader/patch';
-import React from 'react';
-import { Provider } from 'react-redux';
-import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import todoStore from './TodoStore';
 
-import configureStore from './store/configureStore';
-import App from './containers/App';
+todoStore.addTodo('read MobX tutorial');
+console.log(todoStore.report());
 
-import './styles/index.scss';
+todoStore.addTodo('try MobX');
+console.log(todoStore.report());
 
-const store = configureStore();
+todoStore.todos[0].completed = true;
+console.log(todoStore.report());
 
-const rootEl = document.getElementById('root');
+todoStore.todos[1].task = 'try MobX in own project';
+console.log(todoStore.report());
 
-render(
-  <AppContainer>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </AppContainer>,
-  rootEl,
-);
-
-if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    render(
-      <AppContainer>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </AppContainer>,
-      rootEl,
-    );
-  });
-}
+todoStore.todos[0].task = 'grok MobX tutorial';
+console.log(todoStore.report());
