@@ -2,9 +2,7 @@ class TodoStore {
   todos = [];
 
   get completedTodosCount() {
-    return this.todos.filter(
-      todo => todo.completed === true
-    ).length;
+    return this.todos.filter(todo => todo.completed === true).length;
   }
 
   report() {

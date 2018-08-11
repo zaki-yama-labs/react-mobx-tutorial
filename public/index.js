@@ -1,7 +1,5 @@
-import observableTodoStore from './ObservableTodoStore';
+import React from 'react';
+import { render } from 'react-dom';
+import App from './components/App';
 
-observableTodoStore.addTodo('read MobX tutorial');
-observableTodoStore.addTodo('try MobX');
-observableTodoStore.todos[0].completed = true;
-observableTodoStore.todos[1].task = 'try MobX in own project';
-observableTodoStore.todos[0].task = 'grok MobX tutorial';
+render(<App />, document.getElementById('root'));
