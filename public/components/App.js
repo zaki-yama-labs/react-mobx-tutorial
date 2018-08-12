@@ -1,9 +1,15 @@
 import React from 'react';
+import DevTools from 'mobx-react-devtools';
 import TodoList from './TodoList';
 import observableTodoStore from '../ObservableTodoStore';
 
 export default class App extends React.Component {
   render() {
-    return <TodoList store={observableTodoStore} />;
+    return (
+      <div>
+        <TodoList store={observableTodoStore} />
+        <DevTools />
+      </div>
+    );
   }
 }
